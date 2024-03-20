@@ -11,6 +11,9 @@ jeopardy = jeopardy.astype(str)
 print(jeopardy.columns)
 print(jeopardy.dtypes)
 
+# Optional code for shortening the number of rows if training is expensive
+
+jeopardy = jeopardy.iloc[:3000]
 
 # Formatting for OpenAI API fine tuning
 
@@ -25,10 +28,6 @@ for _, row in jeopardy.iterrows():
     messages.append([system_message, user_message, assistant_message])
 
 jeopardy = jeopardy.drop(columns=['Show Number', ' Air Date', ' Round', ' Category', ' Value', ' Question', ' Answer'], axis=1)
-
-# Optional code for shortening the number of rows if training is expensive
-
-#jeopardy = jeopardy.iloc[:10]
 
 print(jeopardy.head(10))
 
