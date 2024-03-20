@@ -13,7 +13,7 @@ print(jeopardy.dtypes)
 
 # Optional code for shortening the number of rows if training is expensive
 
-jeopardy = jeopardy.iloc[:3000]
+jeopardy = jeopardy.iloc[3001:4000]
 
 # Formatting for OpenAI API fine tuning
 
@@ -32,9 +32,7 @@ jeopardy = jeopardy.drop(columns=['Show Number', ' Air Date', ' Round', ' Catego
 print(jeopardy.head(10))
 
 
-jeopardy_out = 'jeopardy_fine_tune_OpenAI.jsonl'
-
-jeopardy_out = 'jeopardy_fine_tune_OpenAI.jsonl'
+jeopardy_out = 'jeopardy_fine_tune_OpenAI_validation.jsonl'
 with open(jeopardy_out, 'w') as f:
     for msg in messages:
         f.write(json.dumps({"messages": msg}) + '\n')
